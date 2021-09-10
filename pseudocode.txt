@@ -1,0 +1,4 @@
+Create a directory for PDFs
+Create tools for Notes
+    T1: Creating a list of questions to create notes for
+    T2: 
