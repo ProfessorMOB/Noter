@@ -1,17 +1,16 @@
 package org.bloomfield.noter;
 
-import java.io.IOException;
-
-import org.apache.pdfbox.pdmodel.*;
+import javax.swing.*;
+import org.bloomfield.noter.PDFMaking.PDFPathFinder;
+import org.bloomfield.noter.GUI.CreateGUI;
 public class App {
     public static void main( String[] args )
     {
-        // System.out.println( "Hello World!" );
-        PDDocument doc = new PDDocument();
+        System.out.println( "Hello World!" );
         PDFPathFinder PPF = new PDFPathFinder();
-        PPF.etceteraPath="Notes";
+        PPF.customPath="Notes";
         String path = PPF.getPDFDir();
-        // doc.save("C:/PdfBox_Examples/my_doc.pdf");
-        // doc.close();
+        CreateGUI swing = new CreateGUI();
+        swing.instantiateSwing(new JFrame());
     }
 }

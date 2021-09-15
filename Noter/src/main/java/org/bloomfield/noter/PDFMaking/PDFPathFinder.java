@@ -1,23 +1,21 @@
-package org.bloomfield.noter;
+package org.bloomfield.noter.PDFMaking;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PDFPathFinder {
-    protected String etceteraPath="";
+    public String customPath="";
     private String path = System.getProperty("user.home");
     private Pattern p = Pattern.compile("(.*)(/)(.*)");
     private Matcher m = p.matcher(path);
-    protected boolean pathStyle = m.matches();
-    protected String getPDFDir(){
+    private boolean pathStyle = m.matches();
+    public String getPDFDir(){
         if(pathStyle==true){
-            path=path+"/Documents/"+etceteraPath+"/";
+            path=path+"/Documents/"+customPath+"/";
         }
         else if(pathStyle==false){
-            path=path+"\\Documents\\"+etceteraPath+"\\";
+            path=path+"\\Documents\\"+customPath+"\\";
         }
         return path;
     }
-
-    
 }

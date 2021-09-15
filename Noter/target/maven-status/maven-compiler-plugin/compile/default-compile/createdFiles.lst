@@ -1,2 +1,3 @@
-org/bloomfield/noter/PDFPathFinder.class
+org/bloomfield/noter/PDFMaking/PDFPathFinder.class
+org/bloomfield/noter/GUI/CreateGUI.class
 org/bloomfield/noter/App.class

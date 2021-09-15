@@ -1,4 +1,16 @@
 Create a directory for PDFs
 Create tools for Notes
-    T1: Creating a list of questions to create notes for
-    T2: 
+    T1: Creating a list of questions/vocab to create notes for
+    T2: Answer Sheets
+    T3: Sheet layout
+            Title, subtitle, content
+Things optional: 
+    T1: Checklists
+    T2: Merge Notes with each other
+    T3: Create vocab sheets from Quizlet data
+        Create quizlet data from vocab sheets
+    Customization:
+        To number/bullet point them or not
+        To space them
+        To highlight, italicize, bold, or underline text
+
