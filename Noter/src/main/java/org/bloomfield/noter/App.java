@@ -6,11 +6,12 @@ import org.bloomfield.noter.GUI.CreateGUI;
 public class App {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
         PDFPathFinder PPF = new PDFPathFinder();
-        PPF.customPath="Notes";
         String path = PPF.getPDFDir();
+        
+        JFrame jf = new JFrame();
         CreateGUI swing = new CreateGUI();
-        swing.instantiateSwing(new JFrame());
+        swing.instantiateSwing(jf);
+        swing.UI(jf);
     }
 }
