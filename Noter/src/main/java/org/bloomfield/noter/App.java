@@ -2,16 +2,18 @@ package org.bloomfield.noter;
 
 import javax.swing.*;
 import org.bloomfield.noter.PDFMaking.PDFPathFinder;
-import org.bloomfield.noter.GUI.CreateGUI;
 public class App {
-    public static void main( String[] args )
+    public static void main(String[] args )
     {
-        PDFPathFinder PPF = new PDFPathFinder();
-        String path = PPF.getPDFDir();
         
-        JFrame jf = new JFrame();
-        CreateGUI swing = new CreateGUI();
-        swing.instantiateSwing(jf);
-        swing.UI(jf);
+        // PDFPathFinder PPF = new PDFPathFinder();
+        // String path = PPF.getPDFDir();
+
+        GUI gui = new GUI();
+        gui.JF(gui.beginPage, 600);
+        gui.beginPage.setTitle("Main Menu");
+        gui.beginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gui.initBeginPage();
+        gui.beginPage.setVisible(true);
     }
 }
