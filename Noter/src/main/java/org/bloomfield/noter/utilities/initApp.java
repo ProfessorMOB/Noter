@@ -1,4 +1,4 @@
-package org.bloomfield.noter;
+package org.bloomfield.noter.utilities;
 
 import javax.swing.*;
 import javax.swing.event.*;
@@ -6,9 +6,9 @@ import javax.swing.text.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class GUI {
+public class initApp {
     // Instantiate the windows
-    JFrame beginPage = new JFrame();
+    public JFrame beginPage = new JFrame();
     JFrame docTools = new JFrame();
 
     // Instantiate layouts
