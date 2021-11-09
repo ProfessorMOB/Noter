@@ -5,6 +5,7 @@ import org.bloomfield.noter.utilities.*;
 public class App {
     public static void main(String[] args )
     {
+        
         PathUtils PPF = new PathUtils();
         String path = PPF.getDir();
         System.out.println(path);
