@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class initApp {
+
     // Instantiate the windows
     public JFrame beginPage = new JFrame();
     JFrame docTools = new JFrame();
@@ -21,14 +22,7 @@ public class initApp {
     JList<String> recentlyAccessed, recentlyCreated;
     Font font, font1;
 
-    public void compo (){
-        JPanel jp = new JPanel();
-        jp.setBounds(0,0,0,0);
-        jp.add(new JButton("asdf"));
-        JPanel jpp = new JPanel();
-        jpp.setBounds(300,300,300,300);
-    }
-
+    // Instantiate welcome page
     public void initBeginPage() {
 
         // Create GridBagLayout Constraints
@@ -54,7 +48,7 @@ public class initApp {
         b1 = new JButton("Create new");
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                initTools("untitled");
+                initDocTools("untitled");
              }
         });
         ComponentSettings(b1, 1, 1);
@@ -83,7 +77,7 @@ public class initApp {
         recentlyAccessed.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         recentlyAccessed.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                initTools(recentlyAccessed.getSelectedValue());
+                initDocTools(recentlyAccessed.getSelectedValue());
             }
         });
         JScrollPane asdf = new JScrollPane(recentlyAccessed);
@@ -97,17 +91,16 @@ public class initApp {
         recentlyCreated.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         recentlyCreated.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                initTools(recentlyCreated.getSelectedValue());
+                initDocTools(recentlyCreated.getSelectedValue());
             }
         });
         JScrollPane asdf2 = new JScrollPane(recentlyCreated);
         ComponentSettings(asdf2, 3, 3);
 
     }
-    public void initDoc(){
-        
-    }
-    public void initTools(String doc){
+
+    //Instantiating the Document UI
+    public void initDocTools(String doc){
         
         /* switch (doc){
             case "untitled":
@@ -147,6 +140,8 @@ public class initApp {
         * the user can also embed images, use FileDialog
         */
     }
+
+    // Instantiating the preferences (optional)
     public void initPreferences() {
         // Preferences (optional)
         /*

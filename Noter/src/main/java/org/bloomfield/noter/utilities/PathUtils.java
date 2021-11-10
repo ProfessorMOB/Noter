@@ -2,23 +2,29 @@ package org.bloomfield.noter.utilities;
 
 /*
 * 
-* This Class allows for compatibility between platforms when creating paths for files
+* Deals with PDF paths and system properties for cross compatibility
 * 
 */
 
 public class PathUtils {
     
-    // Default Folder PDF Path
-    public String customPath="Noter-Docs"; 
+    // Paths
+    public String profilePath="";
+    private String defaultPath=getHome()+getSep()+"Noter-Docs"; 
     
     // Get System Properties and the location of the PDFs
     public String getDir(){
-        return getHome()+getSep()+customPath;
+        return defaultPath+getSep()+profilePath+getSep();
     }
     public String getSep() {
-        return System.getProperty("path.separator");
+        return System.getProperty("file.separator");
     }
     public String getHome() {
         return System.getProperty("user.home");
+    }
+
+    // Admin users have privilege to change default path
+    public void changeDefaultPath(String path){
+        this.defaultPath=path;
     }
 }
