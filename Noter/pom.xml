@@ -52,6 +52,22 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.8.0</version>
+          <executions>
+            <execution>
+              <id>compile-java-10</id>
+              <phase>compile</phase>
+              <goals>
+                <goal>compile</goal>
+              </goals>
+              <configuration>
+                <release>10</release>
+                <compileSourceRoots>
+                  <compileSourceRoot>${project.basedir}/src/main/java10</compileSourceRoot>
+                </compileSourceRoots>
+                <multiReleaseOutput>true</multiReleaseOutput>
+              </configuration>
+            </execution>
+          </executions>
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -66,8 +82,10 @@
                 <addClasspath>true</addClasspath>
                 <classpathPrefix>lib/</classpathPrefix>
                 <mainClass>org.bloomfield.noter.App</mainClass>
-                
               </manifest>
+              <manifestEntries>
+                <Multi-Release>true</Multi-Release>
+              </manifestEntries>
             </archive>
           </configuration>
         </plugin>
