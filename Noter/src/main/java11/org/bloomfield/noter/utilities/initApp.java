@@ -61,7 +61,6 @@ public class initApp {
                         // grab csv data if account is being accessed
                         d.signIn(em.getText(), ps.getText());
                         jd.dispose();
-                        ae.getActionCommand();
                     }
                 });
                 jd = new JDialog();

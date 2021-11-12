@@ -3,41 +3,34 @@ package org.bloomfield.noter.utilities;
 import javax.swing.JOptionPane;
 
 import java.io.*;
-import java.net.URISyntaxException;
 
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import java.nio.*;
-import java.nio.file.*;
 
 public class ReadData {
     // Required Program variables
     static CSVParser p;
-    CSVPrinter pr;
+    static CSVPrinter pr;
+    PathUtils putils = new PathUtils();
     static private String currentUser = "Guest";
-    
     // instantiate CSVParser when class instantiated
     public ReadData(){
         try {
-            Path ps = Path.of(getClass().getClassLoader().getResource("profile.csv").toURI());
-            p= new CSVParser(new BufferedReader(new InputStreamReader(getClass()
-                .getClassLoader()
-                .getResourceAsStream("profile.csv"))), CSVFormat.DEFAULT.withHeader());
-            pr = new CSVPrinter(new FileWriter(ps.toString()), CSVFormat.DEFAULT.withHeader());
+            File f = new File(putils.getDir()+putils.getSep()+"profiles.csv");
+            f.getParentFile().mkdirs();
+            f.createNewFile();
+            pr = new CSVPrinter(new BufferedWriter(new FileWriter(f)), CSVFormat.DEFAULT.withHeader());
+            p = new CSVParser(new BufferedReader(new FileReader(f)), CSVFormat.DEFAULT.withHeader());
         } catch(IOException e){}
-        catch(URISyntaxException e) {}
     }
     public ReadData(boolean close){
         if(close){
             try {
                 pr.close();
                 p.close();
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+            } catch (IOException e) {}
             
         }
     }
@@ -65,25 +58,17 @@ public class ReadData {
                 for(CSVRecord a : p.getRecords()){
                     if ( email.equals(a.get("email")) ) {
                         JOptionPane.showMessageDialog(null, "Email is already used", "Error", JOptionPane.ERROR_MESSAGE);
+                        System.out.println(a.get("password"));
                         break TEST_EMAIL;
                     }
                 }
-                pr.printRecord(name, password, email);
-                currentUser = name;
+                pr.printRecord(name, password, email); currentUser = name;
             }
         } catch(IOException e){}
-        System.out.println(currentUser);
     }
     
     // get the current user
     public String getCurrentUser(){
         return currentUser;
     }
-}
-    
-class test {
-    /* public static void main(String[] args) {
-        ReadData d = new ReadData();
-        d.pr.print("value");
-    }*/ 
 }

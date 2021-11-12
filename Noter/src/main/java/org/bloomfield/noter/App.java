@@ -8,7 +8,7 @@ public class App {
         
         PathUtils PPF = new PathUtils();
         String path = PPF.getDir();
-        System.out.println(path);
+        System.out.println(path+"profiles.csv");
 
         initApp app = new initApp();
         app.JF(app.beginPage, 600);

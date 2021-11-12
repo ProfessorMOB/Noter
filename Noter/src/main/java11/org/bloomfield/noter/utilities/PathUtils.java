@@ -10,10 +10,13 @@ public class PathUtils {
     
     // Paths
     private String profilePath="";
-    private String defaultPath=getHome()+getSep()+"Noter-Docs"; 
+    private String defaultPath=getHome()+getSep()+"Documents"+getSep()+"Noter-Docs"; 
     
     // Get System Properties and the location of the PDFs
     public String getDir(){
+        return defaultPath;
+    }
+    public String getProfileDir(){
         return defaultPath+getSep()+profilePath;
     }
     public String getSep() {
