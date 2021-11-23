@@ -1,5 +1,6 @@
 package org.bloomfield.noter.utilities;
 
+
 import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.text.*;
@@ -29,7 +30,9 @@ public class initApp {
     Font font, font1;
     JTextComponent ps, em, nm;
 
+
     // Instantiate welcome page
+    
     public void initBeginPage() {
 
         // Create GridBagLayout Constraints
@@ -40,6 +43,7 @@ public class initApp {
         c.ipadx=50;
         c.ipady=1;
 
+        
         // Welcome text
         l3=new JLabel("Welcome");
         font = new Font("Ariel", Font.BOLD, 50);
@@ -47,8 +51,9 @@ public class initApp {
         l3.setHorizontalAlignment(JLabel.CENTER);
         ComponentSettings(l3, 0, 0);
 
-        //Sign in
-        signIn = new JButton("Sign in");
+        
+        // Sign in
+        signIn = new JButton("Sign in (TBA)");
         signIn.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 em = new JTextField();
@@ -83,7 +88,9 @@ public class initApp {
         c.ipady=10;
         ComponentSettings(signIn, 6, 0);
 
-        createAccount = new JButton("Create Account");
+
+        // Create account
+        createAccount = new JButton("Create Account (TBA)");
         createAccount.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 em = new JTextField();
@@ -96,6 +103,7 @@ public class initApp {
                 accountStatus.addActionListener(new ActionListener(){
                 public void actionPerformed(ActionEvent e){
                         // write to csv data 
+                        System.out.println(em.getText()+ps.getText()+nm.getText());
                         d.createProfile(em.getText(), ps.getText(), nm.getText());
                         jd.dispose();
                     }
@@ -122,6 +130,7 @@ public class initApp {
         c.ipady=15;
         ComponentSettings(createAccount, 6, 1);
 
+        
         // Create new and Preferences Buttons
         c.gridwidth=2;
         c.ipadx=40;
@@ -141,15 +150,15 @@ public class initApp {
         });
         ComponentSettings(b4, 3, 1);
         
+        
         /* List of pdfs */
         
-        // these arrays will act as placeholders for the pdfs
+        // Instantiate required variables
         String[] array2 = {"asdf", "adf", "asdf"};
         String[] array = {"asdf", "adf", "asdf"};
+        font1= new Font("Ariel", Font.PLAIN, 15);
         
         // Recently Accessed and Recently Created buttons
-        font1= new Font("Ariel", Font.PLAIN, 15);
-
         l1 = new JLabel("Recently Accessed");
         l1.setFont(font1);
         ComponentSettings(l1, 1, 2);
@@ -177,12 +186,17 @@ public class initApp {
         });
         JScrollPane recr = new JScrollPane(recentlyCreated);
         ComponentSettings(recr, 3, 3);
-
     }
 
     //Instantiating the Document UI
     public void initDocTools(String doc){
+        // for the new docs
+        // if there already is another untitled+integer_value, do integer value+=1, search for untitled+integer_value, if it doesn't match anything, then create the file with that name
         
+        // for the existing docs
+        // Loop through the list of documents and open the requested one
+        // if the doc doesn't exist create an error dialog, delete the doc from the list
+
         /* switch (doc){
             case "untitled":
             // create a new untitled document
@@ -194,11 +208,15 @@ public class initApp {
             return;
         } */
 
+        JF(docTools, 800);
+        docTools.setTitle(doc);
+        docTools.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        docTools.setVisible(true);
+
+        //
+        //
         if(doc=="untitled") {
-            JF(docTools, 800);
-            docTools.setTitle(doc);
-            docTools.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            docTools.setVisible(true);
+
         }
         // else if (){
 

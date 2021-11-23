@@ -1,9 +1,12 @@
 package org.bloomfield.noter.utilities;
 
 import javax.swing.JOptionPane;
-
-import java.io.*;
-
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVFormat;
@@ -21,18 +24,15 @@ public class ReadData {
             File f = new File(putils.getDir()+putils.getSep()+"profiles.csv");
             f.getParentFile().mkdirs();
             f.createNewFile();
-            pr = new CSVPrinter(new BufferedWriter(new FileWriter(f)), CSVFormat.DEFAULT.withHeader());
-            p = new CSVParser(new BufferedReader(new FileReader(f)), CSVFormat.DEFAULT.withHeader());
+            pr = new CSVPrinter(new BufferedWriter(new FileWriter(f)), CSVFormat.DEFAULT.withHeader("name","password","email"));
+            p = new CSVParser(new BufferedReader(new FileReader(f)), CSVFormat.DEFAULT.withHeader("name","password","email"));
         } catch(IOException e){}
     }
-    public ReadData(boolean close){
-        if(close){
-            try {
-                pr.close();
-                p.close();
-            } catch (IOException e) {}
-            
-        }
+    public void close(){
+        try {
+            pr.close();
+            p.close();
+        } catch (IOException e) {}
     }
     
     // sign in
@@ -61,7 +61,7 @@ public class ReadData {
                         System.out.println(a.get("password"));
                         break TEST_EMAIL;
                     }
-                }
+                } 
                 pr.printRecord(name, password, email); currentUser = name;
             }
         } catch(IOException e){}

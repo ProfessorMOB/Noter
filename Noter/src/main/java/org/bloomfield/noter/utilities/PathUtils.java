@@ -1,5 +1,7 @@
 package org.bloomfield.noter.utilities;
 
+
+
 /*
 * 
 * Deals with PDF paths and system properties for cross compatibility
@@ -9,9 +11,9 @@ package org.bloomfield.noter.utilities;
 public class PathUtils {
     
     // Paths
+
     private String profilePath="";
     private String defaultPath=getHome()+getSep()+"Documents"+getSep()+"Noter-Docs"; 
-    
     // Get System Properties and the location of the PDFs
     public String getDir(){
         return defaultPath;
@@ -32,6 +34,9 @@ public class PathUtils {
     // Admin users have privilege to change default path
     public void changeDefaultPath(String path){
         this.defaultPath=path;
+    }
+    public void setProfile(){
+        
     }
     public void initPath(){
         // scans the Document directory to see if the noter docs exists, if it doesn't then it creates it
