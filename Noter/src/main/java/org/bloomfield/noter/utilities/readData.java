@@ -36,13 +36,16 @@ public class ReadData {
     PathUtils putils = new PathUtils();
     static private String currentUser = "Guest";
     // instantiate CSVParser when class instantiated
+    
     public ReadData(){
         try {
             File f = new File(putils.getDir()+putils.getSep()+"profiles.csv");
             f.getParentFile().mkdirs();
             f.createNewFile();
+            
             pr = new CSVPrinter(new BufferedWriter(new FileWriter(f)), CSVFormat.DEFAULT.withHeader("name","password","email"));
             p = new CSVParser(new BufferedReader(new FileReader(f)), CSVFormat.DEFAULT.withHeader("name","password","email"));
+            
         } catch(IOException e){}
     }
     public void close(){

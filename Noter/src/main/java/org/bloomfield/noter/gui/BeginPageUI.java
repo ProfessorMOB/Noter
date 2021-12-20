@@ -1,32 +1,15 @@
-/*
-* This file is part of Noter.
-* 
-* Noter is free software: you can redistribute it and/or modify
-* it under the terms of the GNU General Public License as published by
-* the Free Software Foundation, either version 3 of the License, or
-* (at your option) any later version.
-* 
-* Noter is distributed in the hope that it will be useful,
-* but WITHOUT ANY WARRANTY; without even the implied warranty of
-* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-* GNU General Public License for more details.
-* 
-* You should have received a copy of the GNU General Public License
-* along with Noter.  If not, see <https://www.gnu.org/licenses/>.
-*/
-
-package org.bloomfield.noter.utilities;
-
-
+package org.bloomfield.noter.gui;
+import org.bloomfield.noter.utilities.*;
 import javax.swing.*;
 import javax.swing.event.*;
-import javax.swing.text.*;
 
 import java.awt.*;
 import java.awt.event.*;
 
-public class initApp {
-     
+import javax.swing.text.*;
+
+public class BeginPageUI extends JPanel {
+    
     // Instantiate the windows
     public JFrame beginPage = new JFrame();
     JFrame docTools = new JFrame();
@@ -48,10 +31,7 @@ public class initApp {
     Font font, font1;
     JTextComponent ps, em, nm;
 
-
-    // Instantiate welcome page
-    
-    public void initBeginPage() {
+    public BeginPageUI() {
 
         // Create GridBagLayout Constraints
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -156,14 +136,14 @@ public class initApp {
         b1 = new JButton("Create new");
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                initDocTools("untitled");
+                // initDocTools("untitled");
              }
         });
         ComponentSettings(b1, 1, 1);
         b4 = new JButton("Preferences");
         b4.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                initPreferences();
+                // initPreferences();
              }
         });
         ComponentSettings(b4, 3, 1);
@@ -194,7 +174,7 @@ public class initApp {
         recentlyAccessed.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         recentlyAccessed.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                initDocTools(recentlyAccessed.getSelectedValue());
+                // initDocTools(recentlyAccessed.getSelectedValue());
             }
         });
         JScrollPane reac = new JScrollPane(recentlyAccessed);
@@ -208,78 +188,11 @@ public class initApp {
         recentlyCreated.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         recentlyCreated.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                initDocTools(recentlyCreated.getSelectedValue());
+                // initDocTools(recentlyCreated.getSelectedValue());
             }
         });
         JScrollPane recr = new JScrollPane(recentlyCreated);
         ComponentSettings(recr, 3, 3);
-    }
-
-    //Instantiating the Document UI
-    public void initDocTools(String doc){
-        // for the new docs
-        
-        // for the existing docs
-        // Loop through the list of documents and open the requested one
-        // if the doc doesn't exist create an error dialog, delete the doc from the list
-
-        /* switch (doc){
-            case "untitled":
-            // create a new untitled document
-            break;
-            case "": // 
-
-            default: 
-            JOptionPane.showMessageDialog(null, "File not found", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        } */
-
-        JF(docTools, 800);
-        docTools.setTitle(doc);
-        docTools.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        docTools.setVisible(true);
-        // create necessary gui
-
-        //
-        if(doc=="untitled") {
-            int x = 0;
-            for (String element : pu.listOfFiles()) {
-                if (element == doc+x){
-                    x++;
-                }
-            }
-            doc = doc + x;
-        }
-        // else if (){
-
-        // }
-        else {
-            JOptionPane.showMessageDialog(null, "File not found", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        // Open document
-        // create the necessary gui, make sure it targets 
-        /*
-        * String Argument to open a document
-        * If string argument is "untitled" then create a new file and open it
-        * If it is from the list of pdfs, then open it
-        * If it isn't from anywhere and is undefined, then create an error dialog
-        */
-        
-        // Tools
-        /*
-        * Textcomponents to grab user input
-        * create options for the user to scroll through, then when the user is satisfied, he/she can add it to the doc
-        * the user can also embed images, use FileDialog
-        */
-    }
-
-    // Instantiating the preferences (optional)
-    public void initPreferences() {
-        // Preferences (optional)
-        /*
-        * the user can set the default settings for them to use in their tools
-        * 
-        */
     }
 
     public void JF(JFrame f, int size){

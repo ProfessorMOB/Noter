@@ -21,23 +21,11 @@ import org.apache.pdfbox.pdmodel.*;
 
 public class PDFUtils {
     PDDocument doc;
-    
     public void createPDF(PDDocument document, PDPage... page){
         doc=document;
         for (PDPage pdPage : page) {
             doc.addPage(pdPage);
         }
     }
-    public String getTitle(){
-        return "asdf";
-    }
-    public String getSubtitle(){
-        return "asdf";
-    }
-    public String getQuestionsList(){
-        return "asdf";
-    }
-    public String getSpacing(){
-        return "asdf";
-    }
+
 }
