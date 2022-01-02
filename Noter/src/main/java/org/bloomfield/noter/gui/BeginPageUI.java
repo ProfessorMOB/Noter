@@ -1,3 +1,20 @@
+/*
+* This file is part of Noter.
+* 
+* Noter is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+* 
+* Noter is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with Noter.  If not, see <https://www.gnu.org/licenses/>.
+*/
+
 package org.bloomfield.noter.gui;
 import org.bloomfield.noter.utilities.*;
 import javax.swing.*;
@@ -8,11 +25,8 @@ import java.awt.event.*;
 
 import javax.swing.text.*;
 
-public class BeginPageUI extends JPanel {
+public class BeginPageUI extends JFrame {
     
-    // Instantiate the windows
-    public JFrame beginPage = new JFrame();
-    JFrame docTools = new JFrame();
     JDialog jd;
 
     // Instantiate layouts
@@ -32,6 +46,10 @@ public class BeginPageUI extends JPanel {
     JTextComponent ps, em, nm;
 
     public BeginPageUI() {
+
+        JF(this, 600);
+        setTitle("Main Menu");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create GridBagLayout Constraints
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -111,6 +129,7 @@ public class BeginPageUI extends JPanel {
                 jd.setLayout(new GridLayout(7, 1));
                 jd.setBounds(300,300,300,300);
                 jd.setSize(300,200);
+                jd.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
                 jd.add(accountStatus, SwingConstants.CENTER);
                 jd.add(ps, SwingConstants.CENTER);
@@ -193,6 +212,8 @@ public class BeginPageUI extends JPanel {
         });
         JScrollPane recr = new JScrollPane(recentlyCreated);
         ComponentSettings(recr, 3, 3);
+
+        setVisible(true);
     }
 
     public void JF(JFrame f, int size){
@@ -206,12 +227,12 @@ public class BeginPageUI extends JPanel {
     public void ComponentSettings (JComponent jc, int gridx, int gridy) {
         c.gridx=gridx;
         c.gridy=gridy;
-        beginPage.add(jc, c);
+        this.add(jc, c);
     }
 
     public void ComponentSettings (JTextComponent jtc, int gridx, int gridy) {
         c.gridx=gridx;
         c.gridy=gridy;
-        beginPage.add(jtc, c);
+        this.add(jtc, c);
     }
 }
