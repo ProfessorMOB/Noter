@@ -85,6 +85,7 @@
               </manifest>
               <manifestEntries>
                 <Multi-Release>true</Multi-Release>
+                <Class-Path>.</Class-Path>
               </manifestEntries>
             </archive>
           </configuration>

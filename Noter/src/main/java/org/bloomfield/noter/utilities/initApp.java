@@ -156,7 +156,7 @@ public class initApp {
         b1 = new JButton("Create new");
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                initDocTools("untitled");
+                initDocTools(/*"untitled"*/);
              }
         });
         ComponentSettings(b1, 1, 1);
@@ -177,7 +177,7 @@ public class initApp {
         for (String element : pu.listOfFiles()) {
             // int x = 0;
             if(element=="profiles.csv"){
-                // fix profilescxv from showing up
+                // fix profilescsv from showing up
             }
         }
         for (String element : array) {
@@ -194,7 +194,7 @@ public class initApp {
         recentlyAccessed.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         recentlyAccessed.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                initDocTools(recentlyAccessed.getSelectedValue());
+                initDocTools(/*recentlyAccessed.getSelectedValue()*/);
             }
         });
         JScrollPane reac = new JScrollPane(recentlyAccessed);
@@ -208,7 +208,7 @@ public class initApp {
         recentlyCreated.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         recentlyCreated.addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent e) {
-                initDocTools(recentlyCreated.getSelectedValue());
+                initDocTools(/*recentlyCreated.getSelectedValue()*/);
             }
         });
         JScrollPane recr = new JScrollPane(recentlyCreated);
@@ -216,7 +216,7 @@ public class initApp {
     }
 
     //Instantiating the Document UI
-    public void initDocTools(String doc){
+    public void initDocTools(/*String doc*/){
         // for the new docs
         
         // for the existing docs
@@ -234,6 +234,12 @@ public class initApp {
             return;
         } */
 
+        App2 tools = new App2();
+
+        
+        /*
+        
+        
         JF(docTools, 800);
         docTools.setTitle(doc);
         docTools.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -256,6 +262,11 @@ public class initApp {
         else {
             JOptionPane.showMessageDialog(null, "File not found", "Error", JOptionPane.ERROR_MESSAGE);
         }
+
+
+        */
+        
+        
         // Open document
         // create the necessary gui, make sure it targets 
         /*
